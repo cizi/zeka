@@ -145,9 +145,7 @@ a.sliderPicDelete:hover{
 	float: none;
 	vertical-align: top;
 }
-.navbar .navbar-collapse {
-	text-align: center;
-}
+
 /* navbar override end*/
 img.footerList{
 	width: auto;
@@ -264,4 +262,25 @@ div.colorExample {
 }
 .hidden{
 	display: none;
+}
+.zekaColour {
+	background-color: #046be0;
+	color: #046be0;
+}
+.zekaNav{
+	margin: 0!important;
+	padding-left: -15px!important;
+	margin-left: -15px!important;
+}
+.zekaHomeLink{
+	margin: 0!important;
+
+	padding-bottom: 0!important;
+	padding-top: 10px!important;
+	height: 50px;
+}
+.imgZekaHome {
+	height: 80%;
+	padding-left: 5px;
+	padding-right: 5px;
 }

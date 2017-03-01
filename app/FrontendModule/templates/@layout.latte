@@ -82,7 +82,7 @@
 	{* menu *}
 	<nav class="navbar navbar-default" style="margin: 0;
 	{if $showMenu == false} display: none;{/if}
-	{if $menuColor != ""}background-color: {!$menuColor}; border: 2px solid {!$menuColor};{/if}
+	{if $menuColor != ""}background-color: {!$menuColor};{/if}
 			">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -102,8 +102,9 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				{if $showHomeButtonInMenu}
-					<ul class="nav navbar-nav">
-						<li><a href="{$baseUrl}" class="menuLink"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+					<ul class="nav navbar-nav zekaNav">
+						{* <span class="glyphicon glyphicon-home" aria-hidden="true"></span> *}
+						<li class="zekaColour zekaNav"><a class="zekaHomeLink" href="{$baseUrl}"><img class="imgZekaHome" src="{$baseUrl}/images/zeka_homepage_logo.png" /></a></li>
 					</ul>
 				{/if}
 				<ul class="nav navbar-nav">
