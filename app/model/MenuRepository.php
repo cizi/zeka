@@ -12,16 +12,19 @@ class MenuRepository extends BaseRepository {
 	/**
 	 * @param string $lang
 	 * @param int $level
-	 * @return MenuEntity[]
+	 * @param int $submenu
+	 * @return array
 	 */
-	public function findItems($lang, $level = 1) {
+	public function findItems($lang, $level = 1, $submenu = 0) {
 		$items = [];
 		$query = ["select * from menu_item as mi
 			where level = %i
 			and lang = %s
+			and submenu = %i
 			order by `order`",
 			$level,
-			$lang
+			$lang,
+			$submenu
 		];
 
 		$result = $this->connection->query($query)->fetchAll();
@@ -127,7 +130,7 @@ class MenuRepository extends BaseRepository {
 		foreach ($result as $item) {
 			$menuItem = new MenuEntity();
 			$menuItem->hydrate($item->toArray());
-			$menuItem->setHasSubItems($this->hasSubItems($lang, $level, $menuItem->getOrder()));
+			$menuItem->sethasSubItems($this->hasSubItems($lang, $level, $menuItem->getOrder()));
 			$items[] = $menuItem;
 		}
 

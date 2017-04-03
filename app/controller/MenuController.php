@@ -48,7 +48,7 @@ class MenuController {
 
 			if ($menuEntity->hasSubItems()) {
 				$anotherEntities = $this->menuRepository->findItems($menuEntity->getLang(),
-					$menuEntity->getLevel() + 1);
+					$menuEntity->getLevel() + 1, $menuEntity->getId());
 				$tableData .= $this->renderMenuItemWithSubItemsInBlockContent($presenter, $anotherEntities);
 			}
 			$counter++;
@@ -104,7 +104,7 @@ class MenuController {
 				";
 
 			if ($menuEntity->hasSubItems()) {
-				$anotherEntities = $this->menuRepository->findItems($menuEntity->getLang(), $menuEntity->getLevel() + 1);
+				$anotherEntities = $this->menuRepository->findItems($menuEntity->getLang(), $menuEntity->getLevel() + 1, $menuEntity->getId());
 				$tableData .= $this->renderMenuItemWithSubItems($presenter, $anotherEntities);
 			}
 			$counter++;
@@ -148,8 +148,10 @@ class MenuController {
 			$itemsInLevel = $this->menuRepository->findSubItems($id, $lang, $level);
 		}
 
+		/** @var MenuEntity $item */
+		$i = 0;
 		foreach ($itemsInLevel as $item) {
-			if ($item->hasSubItems()) {
+			if ($item->hasSubItems() ) {
 				$menu .= (($level == 1) ? '<li class="dropdown">' : '<li class="dropdown-submenu">');
 
 				$menu .= '<a href="#" class="dropdown-toggle menuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $item->getTitle();
@@ -163,7 +165,19 @@ class MenuController {
 				$menu .= '</ul>';
 				$menu .= '</li>';
 			} else {
-				$menu .= '<li><a href="' . $item->getLink() . '" class="menuLink">' . $item->getTitle() . '</a></li>';
+				$ownSubItemsRender = ["zarucni-servis","autoservis","pneuservis","diagnostika","podvozkove-centrum","karosarna-a-lakovna", "pojistne-udalosti", "pujcovna-vozidel"];
+				if (in_array($item->getLink(), $ownSubItemsRender)) {
+					if($i % 2 == 0) {
+						$menu .= "<li><table class='sluzbyPodmenu'><tr>";
+					}
+					$menu .= '<td><a href="' . $item->getLink() . '" class="menuLink">' . $item->getTitle() . '</a></td>';
+					if($i % 2 == 1) {
+						$menu .= "</tr></table></li>";
+					}
+					$i = $i + 1;
+				} else {
+					$menu .= '<li><a href="' . $item->getLink() . '" class="menuLink">' . $item->getTitle() . '</a></li>';
+				}
 			}
 		}
 
