@@ -9,6 +9,11 @@ use Nette\Application\UI\Presenter;
 
 class MenuController {
 
+	/**
+	 * @var array speciální menu položky
+	 */
+	private $ownSubItemsRender = ["zarucni-servis","autoservis","pneuservis","diagnostika","podvozkove-centrum","karosarna-a-lakovna", "pojistne-udalosti", "pujcovna-vozidel"];
+
 	/** @var MenuRepository  */
 	private $menuRepository;
 
@@ -165,14 +170,16 @@ class MenuController {
 				$menu .= '</ul>';
 				$menu .= '</li>';
 			} else {
-				$ownSubItemsRender = ["zarucni-servis","autoservis","pneuservis","diagnostika","podvozkove-centrum","karosarna-a-lakovna", "pojistne-udalosti", "pujcovna-vozidel"];
-				if (in_array($item->getLink(), $ownSubItemsRender)) {
+				if (in_array($item->getLink(), $this->ownSubItemsRender)) {
 					if($i % 2 == 0) {
-						$menu .= "<li><table class='sluzbyPodmenu'><tr>";
+						$menu .= "<li><div class='row sluzbyPodmenu'>";
 					}
-					$menu .= '<td><a href="' . $item->getLink() . '" class="menuLink">' . $item->getTitle() . '</a></td>';
+					$menu .= '<div class="col-lg-6">';
+					$menu .= ($i % 2 == 1 ? '<div class="leftGreyBorder"></div>' : '');
+					$menu .= '<img src="' . $this->getServiceImageImgLink($item->getLink()) . '" />';
+					$menu .= '<a href="' . $item->getLink() . '" class="menuLink">' . $item->getTitle() . '</a></div>';
 					if($i % 2 == 1) {
-						$menu .= "</tr></table></li>";
+						$menu .= "</div></li>";
 					}
 					$i = $i + 1;
 				} else {
@@ -220,6 +227,48 @@ class MenuController {
 		*/
 
 		return $menu;
+	}
+
+	/**
+	 * @param string $link
+	 * @return string
+	 */
+	private function getServiceImageImgLink($link) {
+		$image = "../images/unknow.png";
+		switch ($link) {
+			case "zarucni-servis":
+				$image = "../images/warranty.png";
+			break;
+
+			case "autoservis":
+				$image = "../images/servis.png";
+			break;
+
+			case "pneuservis":
+				$image = "../images/pneu.png";
+			break;
+
+			case "diagnostika":
+				$image = "../images/diagnostic.png";
+			break;
+
+			case "podvozkove-centrum";
+				$image = "../images/chassis.png";
+			break;
+
+			case "karosarna-a-lakovna":
+				$image = "../images/paint.png";
+			break;
+
+			case "pojistne-udalosti":
+				$image = "../images/insurance.png";
+			break;
+			case "pujcovna-vozidel":
+				$image = "../images/retnal.png";
+				break;
+		}
+
+		return $image;
 	}
 	
 }

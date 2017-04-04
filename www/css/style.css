@@ -18,6 +18,10 @@ h1 {
 	display: none;
 }
 
+.menuLink {
+	font-size: 18px;
+}
+
 div.flash {
 	color: black;
 	background: #FFF9D7;
@@ -274,7 +278,6 @@ div.colorExample {
 }
 .zekaHomeLink{
 	margin: 0!important;
-
 	padding-bottom: 0!important;
 	padding-top: 10px!important;
 	height: 50px;
@@ -285,13 +288,18 @@ div.colorExample {
 	padding-right: 5px;
 }
 .sluzbyPodmenu {
-	width: 800px;
+	width: 600px;
 }
-.sluzbyPodmenu tr td {
-	width: 50%;
+.sluzbyPodmenu div img{
+	width: 80px;
+	display: inline;
+	padding: 8px 18px;
 }
-.sluzbyPodmenu a {
-	margin: 5px 20px 5px 20px;
-	width: 400px;
-	display: inline-block;
+.leftGreyBorder {
+	height: 40px;
+	background-color: lightgrey;
+	position: absolute;
+	margin: 12px 0;
+	width: 1px;
+
 }
