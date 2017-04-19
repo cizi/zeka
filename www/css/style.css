@@ -303,3 +303,6 @@ div.colorExample {
 	width: 1px;
 
 }
+#error_ {
+	display: none!important;
+}

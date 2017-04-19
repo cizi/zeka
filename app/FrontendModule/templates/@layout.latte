@@ -151,6 +151,9 @@
 			<script src="{$basePath}/js/jquery.easing.1.3.js"></script>
 			<script src="{$basePath}/js/jquery.fitvids.js"></script>
 			<script src="{$basePath}/js/jquery.bxslider.min.js"></script>
+
+			<script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=d7f5d66c6a439a32db8d00ab2d39ed098c6b3b4f'></script>
+			<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhfdXxAU5sx71-ZeA2KIw6uFkDZ-EYKcA'></script>
 		{/block}
 
 		{if $googleAnalytics != ""}
@@ -166,16 +169,26 @@
 		{/if}
 	</div>
 
-
 	{* mapy *}
-	<div class="row" n:syntax=off>
-		<div class="col-lg-6 col-md-6" style="padding-left: 0!important;">
-			<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhfdXxAU5sx71-ZeA2KIw6uFkDZ-EYKcA'></script><div style='overflow:hidden;height:300px;width:100%;'><div id='gmap_canvas' style='height:300px;width:100%;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=4f62f34db281a3959a9b57ec422912e903f4458a'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(49.2155109,14.422066399999949),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(49.2155109,14.422066399999949)});infowindow = new google.maps.InfoWindow({content:'<strong>Autoservis Zeka s.r.o.</strong><br>Havlíčkova 551, Týn nad Vltavou<br>375 01 Týn nad Vltavou – Malá Strana<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+	{if (!isset($currentLink) || (($currentLink->getLink() != "tyn-nad-vltavou") && ($currentLink->getLink() != "ceske-budejovice")))}
+		<div class="row" n:syntax=off>
+			<div class="col-lg-6 col-md-6" style="padding-left: 0!important; margin-left: 0px!important;">
+				<div style='overflow:hidden;height:300px;width:100%; margin-left: 13px'><div id='gmap_canvas' style='height:300px;width:100%;'></div>
+					<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+				</div> <a href='http://www.shopbeleuchtung.net'>auf www.shopbeleuchtung.net</a>
+				<script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=9d12ccd29b51b9a9849f2b8321bcc7538a1e7e7b'></script>
+				<script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(49.2155109,14.422066399999949),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(49.2155109,14.422066399999949)});infowindow = new google.maps.InfoWindow({content:'<strong>Autoservis Zeka s.r.o.</strong><br>Havlíčkova 551<br>375 01 Týn nad Vltavou – Malá Strana<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+			</div>
+
+			<div class="col-lg-6 col-md-6" style="padding-left: 0!important;">
+				<div style='overflow:hidden;height:300px;width:100%;'>
+					<div id='gmap_canvas2' style='height:300px;width:100%;'></div>
+					<style>#gmap_canvas2 img{max-width:none!important;background:none!important}</style>
+				</div>
+				<script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(48.9896952,14.503384900000015),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas2'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(48.9896952,14.503384900000015)});infowindow = new google.maps.InfoWindow({content:'<strong>Autoservis Zeka s.r.o.</strong><br>Okružní 544. České Budějovice<br>370 04 České Budějovice<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+			</div>
 		</div>
-		<div class="col-lg-6 col-md-6" style="padding-left: 0!important;">
-			<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhfdXxAU5sx71-ZeA2KIw6uFkDZ-EYKcA'></script><div style='overflow:hidden;height:300px;width:100%;'><div id='gmap_canvas2' style='height:300px;width:100%;'></div><style>#gmap_canvas2 img{max-width:none!important;background:none!important}</style></div><script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=d7f5d66c6a439a32db8d00ab2d39ed098c6b3b4f'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(48.9896952,14.503384900000015),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas2'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(48.9896952,14.503384900000015)});infowindow = new google.maps.InfoWindow({content:'<strong>Autoservis Zeka s.r.o.</strong><br>Okružní 544. České Budějovice<br>370 04 České Budějovice<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
-		</div>
-	</div>
+	{/if}
 	{* mapy konec *}
 
 
@@ -248,6 +261,22 @@
 			});
 		</script>
 	{/if}
+
+	<script>
+		$(function() {
+			var mapTyn = $( "#map_tyn" );
+			if (mapTyn.length) {
+				var htmlTextTyn = '<div style="margin-top: 50px; margin-right: 120px;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.2117652725897!2d14.419877716053742!3d49.215510879324015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ca972db9ee23d%3A0xb7c3815284d29fde!2zSGF2bMOtxI1rb3ZhIDU1MSwgTWFsw6EgU3RyYW5hLCAzNzUgMDEgVMO9biBuYWQgVmx0YXZvdQ!5e0!3m2!1scs!2scz!4v1492611465341" width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe></div>';
+				mapTyn.html(htmlTextTyn);
+			}
+
+			var mapCb = $( "#map_cb" );
+			if (mapCb.length) {
+				var htmlTextCb = '<div style="margin-top: 50px; margin-right: 120px;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2618.0978560054923!2d14.501196216047441!3d48.989695179300526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47734e4583d3659f%3A0x36e0197c11a486ba!2zT2tydcW-bsOtIDU0NCwgxIxlc2vDqSBCdWTEm2pvdmljZSA0LCAzNzAgMDEgxIxlc2vDqSBCdWTEm2pvdmljZQ!5e0!3m2!1scs!2scz!4v1492611873323" width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe></div>';
+				mapCb.html(htmlTextCb);
+			}
+		})
+	</script>
 
 	{if isset($currentLink)}	{* keywords in seo*}
 		<strong	class="hidden">{$currentLink->getTitle()}</strong>
