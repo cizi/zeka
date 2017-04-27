@@ -306,3 +306,11 @@ div.colorExample {
 #error_ {
 	display: none!important;
 }
+.footerMap {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	top:      0;
+	bottom:   0;
+	right:    0;
+}
