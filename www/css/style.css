@@ -1,3 +1,18 @@
+@media (max-width:992px) {
+	.container {
+		width: 100%!important;
+	}
+	.content {
+		margin-top: -45px!important;
+		margin-bottom: 0!important;
+	}
+	.contentRow{
+		padding: 0;
+		margin: 0;
+		width: 100%!important;
+	}
+}
+
 body {
 	font-size: 15px;
 	line-height: 1.6;
