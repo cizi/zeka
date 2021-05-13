@@ -154,7 +154,7 @@ class HomepagePresenter extends BasePresenter {
 			if (!empty($values['attachment'])) {
 				/** @var FileUpload $file */
 				$file = $values['attachment'];
-				if (!empty($file->name)) {
+				if (!empty($file->hasFile())) {
 					$fileController = new FileController();
 					if ($fileController->upload($file, $supportedFilesFormat, $this->getHttpRequest()->getUrl()->getBaseUrl()) == false) {
 						$fileError = true;
@@ -190,7 +190,7 @@ class HomepagePresenter extends BasePresenter {
 		if ($this->webconfigRepository->getByKey(WebconfigRepository::KEY_CONTACT_FORM_RECIPIENT, WebconfigRepository::KEY_LANG_FOR_COMMON) == "") {
 			$form["confirm"]->setDisabled();
 		}
-		$form->onSuccess[] = $this->contactFormSubmitted;
+		$form->onSuccess[] = [$this, 'contactFormSubmitted'];
 		return $form;
 	}
 

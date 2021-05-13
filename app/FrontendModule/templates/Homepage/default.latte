@@ -1,15 +1,16 @@
 {block content}
+    {if count($flashes)}<br /><br />{/if}
 	<div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
 	{if count($flashes)}<br />{/if}
 	{foreach $userBlocks as $block}
 			{if $block->getId() == $contactFormId}
-				<div style="margin: auto; background-color: {!$block->getBackgroundColor()}; outline: 15px solid {!$block->getBackgroundColor()}; color: {!$block->getColor()}; width: {!$widthEnum->getValueByKey($block->getWidth())};">
+				<div style="margin: auto; background-color: {$block->getBackgroundColor()|noescape}; outline: 15px solid {$block->getBackgroundColor()|noescape}; color: {$block->getColor()|noescape}; width: {$widthEnum->getValueByKey($block->getWidth())|noescape};">
 					{include "../contactForm.latte"}
 				</div>
 			{else}
-				<div class="contentRow" style="background-color: {!$block->getBackgroundColor()}; color: {!$block->getColor()}; width: {!$widthEnum->getValueByKey($block->getWidth())}">
-					{var text = str_replace("../../.", "",$block->getBlockContent()->getContentText(true))}
-					{!$text}
+				<div class="contentRow" style="background-color: {$block->getBackgroundColor()|noescape}; color: {$block->getColor()|noescape}; width: {$widthEnum->getValueByKey($block->getWidth())|noescape}">
+					{var $text = str_replace("../../.", "",$block->getBlockContent()->getContentText(true))}
+					{$text|noescape}
 				</div>
 				{if ($iterator->getCounter()%2 == 0) && ($pageKeywords != "")}<em class="hidden">{$pageKeywords}</em>{/if}
 			{/if}

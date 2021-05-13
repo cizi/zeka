@@ -28,7 +28,7 @@ class UserPresenter extends SignPresenter {
 	}
 
 	/**
-	 * defaultní akce presenteru naète uživatele
+	 * defaultnï¿½ akce presenteru naï¿½te uï¿½ivatele
 	 */
 	public function actionDefault() {
 		$userRoles = new UserRoleEnum();
@@ -50,7 +50,7 @@ class UserPresenter extends SignPresenter {
 
 	public function createComponentEditForm() {
 		$form = $this->userForm->create($this);
-		$form->onSuccess[] = $this->saveUser;
+		$form->onSuccess[] = [$this, 'saveUser'];
 
 		return $form;
 	}

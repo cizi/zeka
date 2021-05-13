@@ -55,7 +55,7 @@ class DefaultPresenter extends BasePresenter {
 			$form['lang']->setItems($langs);
 		}
 
-		$form->onSuccess[] = $this->formSucceeded;
+		$form->onSuccess[] = [$this, 'formSucceeded'];
 
 		return $form;
 	}
@@ -66,9 +66,9 @@ class DefaultPresenter extends BasePresenter {
 	 */
 	public function formSucceeded(Form $form, $values) {
 		if ($values->remember) {
-			$this->user->setExpiration('14 days', false);
+			$this->user->setExpiration('14 days');
 		} else {
-			$this->user->setExpiration('20 minutes', true);
+			$this->user->setExpiration('20 minutes');
 		}
 
 		try {

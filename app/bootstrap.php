@@ -23,4 +23,7 @@ $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 
 $container = $configurator->createContainer();
 
+$panel = new Dibi\Bridges\Tracy\Panel;
+$panel->register($container->getByType(\Dibi\Connection::class));
+
 return $container;

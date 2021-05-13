@@ -5,7 +5,7 @@ namespace App\Forms;
 use Nette;
 use Nette\Application\UI\Form;
 
-class SignForm extends Nette\Object {
+class SignForm  {
 
 	/** @var FormFactory */
 	private $factory;

@@ -41,7 +41,7 @@ class LangPresenter extends SignPresenter {
 
 	public function createComponentLangForm() {
 		$form = $this->langForm->create();
-		$form->onSuccess[] = $this->saveLangCommon;
+		$form->onSuccess[] = [$this, 'saveLangCommon'];
 
 		return $form;
 	}

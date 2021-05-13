@@ -1,0 +1,11 @@
+www/upload/*
+.idea/*
+www/upload
+!www/upload/.gitkeep
+.vscode
+vendor/*
+!vendor/.gitkeep
+app/config/config.local.neon
+app/config/config.neon
+!app/config/config.local.neon.example
+!app/config/config.neon.example

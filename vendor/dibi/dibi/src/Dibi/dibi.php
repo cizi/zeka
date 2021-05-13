@@ -22,8 +22,8 @@ class dibi
 
 	/** version */
 	const
-		VERSION = '3.0.4',
-		REVISION = 'released on 2016-04-06';
+		VERSION = '3.0.9',
+		REVISION = 'released on 2018-03-09';
 
 	/** sorting order */
 	const
@@ -90,7 +90,7 @@ class dibi
 	 * @return Dibi\Connection
 	 * @throws Dibi\Exception
 	 */
-	public static function connect($config = [], $name = 0)
+	public static function connect($config = [], $name = '0')
 	{
 		return self::$connection = self::$registry[$name] = new Dibi\Connection($config, $name);
 	}
@@ -167,7 +167,7 @@ class dibi
 	/**
 	 * Generates and executes SQL query - Monostate for Dibi\Connection::query().
 	 * @param  array|mixed      one or more arguments
-	 * @return Dibi\Result|int   result set object (if any)
+	 * @return Dibi\Result|int   result set or number of affected rows
 	 * @throws Dibi\Exception
 	 */
 	public static function query($args)
@@ -180,7 +180,7 @@ class dibi
 	/**
 	 * Executes the SQL query - Monostate for Dibi\Connection::nativeQuery().
 	 * @param  string           SQL statement.
-	 * @return Dibi\Result|int   result set object (if any)
+	 * @return Dibi\Result|int   result set or number of affected rows
 	 */
 	public static function nativeQuery($sql)
 	{
@@ -241,7 +241,7 @@ class dibi
 	/**
 	 * Executes SQL query and fetch first column - Monostate for Dibi\Connection::query() & fetchSingle().
 	 * @param  array|mixed    one or more arguments
-	 * @return string
+	 * @return mixed
 	 * @throws Dibi\Exception
 	 */
 	public static function fetchSingle($args)
@@ -254,7 +254,7 @@ class dibi
 	/**
 	 * Executes SQL query and fetch pairs - Monostate for Dibi\Connection::query() & fetchPairs().
 	 * @param  array|mixed    one or more arguments
-	 * @return string
+	 * @return array
 	 * @throws Dibi\Exception
 	 */
 	public static function fetchPairs($args)
@@ -382,7 +382,7 @@ class dibi
 
 
 	/**
-	 * @param  string    column name
+	 * @param  mixed    column name
 	 * @return Dibi\Fluent
 	 */
 	public static function select($args)

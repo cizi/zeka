@@ -6,18 +6,6 @@ parameters:
     language:
         default: cs
 
-    database:
-        host: localhost
-        username: root
-        password:
-        database: zeka
-        lazy: TRUE
-        profiler:
-            run: true
-            explain: true
-            filter: DibiEvent::ALL
-            file: log.sql
-
 php:
 	date.timezone: Europe/Prague
 
@@ -54,8 +42,7 @@ services:
 	- App\Controller\MenuController
 	- App\Controller\FileController
 	router: App\RouterFactory::createRouter
-	connection:
-	    class: \Dibi\Connection(%database%)
+	database: \Dibi\Connection(%database%)
 
 tracy:
     bar:

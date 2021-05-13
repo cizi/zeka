@@ -98,7 +98,7 @@ class LangRepository {
 	 * @param string $langCode
 	 */
 	public function loadLanguageMutation($langCode) {
-		$translation = LANG_PATH . $langCode . DIRECTORY_SEPARATOR . 'translation.php';
+		$translation = LANG_PATH . $langCode . '/translation.php';
 		if (file_exists($translation)) {
 			require_once $translation;
 		} else {
