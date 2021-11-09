@@ -28,37 +28,46 @@ class ContactForm  {
 
 		$form->addText("name")
 			->setAttribute("tabindex", "1")
-			->setAttribute("class", "tinym_required_field form-control contactForm")
+			->setAttribute("class", "form-control")
 			->setAttribute("placeholder", CONTACT_FORM_NAME)
-			->setAttribute("validation", CONTACT_FORM_NAME_REQ);
+			->setRequired(CONTACT_FORM_NAME_REQ)
+            ->setAttribute("style", "margin-top: 5px;");
 
 		$form->addText("contactEmail")
 			->setAttribute("type","email")
 			->setAttribute("tabindex", "2")
-			->setAttribute("class", "tinym_required_field form-control contactForm")
+			->setAttribute("class", "form-control")
 			->setAttribute("placeholder", CONTACT_FORM_EMAIL)
-			->setAttribute("validation", CONTACT_FORM_EMAIL_REQ);
+			->setRequired(CONTACT_FORM_EMAIL_REQ)
+            ->setAttribute("style", "margin-top: 5px;");
 
 		$form->addText("subject")
 			->setAttribute("tabindex", "3")
-			->setAttribute("class", "tinym_required_field form-control contactForm")
+			->setAttribute("class", "form-control")
 			->setAttribute("placeholder", CONTACT_FORM_SUBJECT)
-			->setAttribute("validation", CONTACT_FORM_SUBJECT_REQ);
+			->setRequired(CONTACT_FORM_SUBJECT_REQ)
+            ->setAttribute("style", "margin-top: 5px;");
+
+        $form->addCheckbox("gdpr", CONTACT_FORM_GDPR)
+            ->setAttribute("tabindex", "4")
+            ->setRequired(CONTACT_FORM_GDPR_REQ)
+            ->setAttribute("style", "margin-top: 5px;");
 
 		$form->addUpload("attachment")
-			->setAttribute("tabindex", "4")
+			->setAttribute("tabindex", "5")
 			->setAttribute("placeholder", CONTACT_FORM_ATTACHMENT)
-			->setAttribute("class", "form-control contactForm");
+			->setAttribute("class", "form-control contactForm")
+            ->setAttribute("style", "margin-top: 5px;");
 
 		$form->addTextArea("text", null, null, 7)
-			->setAttribute("tabindex", "5")
+			->setAttribute("tabindex", "6")
 			->setAttribute("placeholder", CONTACT_FORM_TEXT)
-			->setAttribute("validation", CONTACT_FORM_TEXT_REQ)
-			->setAttribute("class", "tinym_required_field form-control contactForm")
+			->setRequired(CONTACT_FORM_TEXT_REQ)
+			->setAttribute("class", "form-control")
 			->setAttribute("style", "margin-top: 5px; margin-left: 5px;");
 
 		$form->addSubmit("confirm", CONTACT_FORM_BUTTON_CONFIRM)
-			->setAttribute("tabindex", "6")
+			->setAttribute("tabindex", "7")
 			->setAttribute("class","btn btn-success");
 
 		return $form;

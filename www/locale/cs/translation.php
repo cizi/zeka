@@ -200,11 +200,13 @@ define("CONTACT_FORM_NAME_REQ", 'Pole jméno nesmí být prázdné!');
 define("CONTACT_FORM_EMAIL", 'Kontaktní email');
 define("CONTACT_FORM_EMAIL_REQ", 'Pole email nesmí být prázdné!');
 define("CONTACT_FORM_SUBJECT", 'Předmět');
-define("CONTACT_FORM_SUBJECT_REQ", 'Pole předmět nesmí být prázdné');
+define("CONTACT_FORM_GDPR", 'Souhlasím se zpracováním osobních údajů');
+define("CONTACT_FORM_GDPR_REQ", 'Musíte souhlasit se zpracováním osobních údajů!');
+define("CONTACT_FORM_SUBJECT_REQ", 'Pole předmět nesmí být prázdné!');
 define("CONTACT_FORM_ATTACHMENT", 'Příloha');
 define("CONTACT_FORM_ATTACHMENT_INFO", 'Umožní do kontaktního fomuláře vložit uživateli přílohu a odeslat ji spolu s emailem.');
 define("CONTACT_FORM_TEXT", 'Vaše zpráva');
-define("CONTACT_FORM_TEXT_REQ", 'Tělo zprávy nesmí být prázdné');
+define("CONTACT_FORM_TEXT_REQ", 'Tělo zprávy nesmí být prázdné!');
 define("CONTACT_FORM_BUTTON_CONFIRM", 'Odeslat');
 
 define("CONTACT_FORM_SETTING_BACKEND_TITLE", 'Nadpis kontaktního formuláře');
